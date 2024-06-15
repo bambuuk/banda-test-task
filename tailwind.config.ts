@@ -7,12 +7,19 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "576px",
+      md: "768px",
+      bmd: "992px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1440px",
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      boxShadow: {
+        'sm': '0px 0px 8px rgba(255, 255, 255, 0.915)',
       },
+
     },
   },
   plugins: [],
