@@ -1,23 +1,15 @@
+import { getAllPosts } from "@/services/getData";
 import { Post } from "@/types/Post";
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
-
-async function getData() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    next: {
-      revalidate: 60,
-    },
-  });
-  return response.json();
-}
 
 export const metadata: Metadata = {
   title: "Posts",
 };
 
 export default async function PostsPage() {
-  const posts = await getData();
+  const posts = await getAllPosts();
 
   return (
     <main className="flex flex-col items-center flex-auto">

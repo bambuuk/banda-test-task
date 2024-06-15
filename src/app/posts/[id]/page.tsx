@@ -1,3 +1,4 @@
+import { getPostById } from "@/services/getData";
 import { Post } from "@/types/Post";
 import { Metadata } from "next";
 
@@ -7,25 +8,10 @@ interface Props {
   };
 }
 
-async function getData(id: string) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${id}`,
-    {
-      next: {
-        revalidate: 60,
-      },
-    }
-  );
-
-  if (!response.ok) throw new Error("Unable to fetch post");
-
-  return response.json();
-}
-
 export async function generateMetadata({
   params: { id },
 }: Props): Promise<Metadata> {
-  const post = await getData(id);
+  const post = await getPostById(id);
 
   return {
     title: post.title,
@@ -33,7 +19,7 @@ export async function generateMetadata({
 }
 
 export default async function PostItemPage({ params }: Props) {
-  const post: Post = await getData(params.id);
+  const post: Post = await getPostById(params.id);
 
   return (
     <main className="flex flex-col items-center flex-auto">
