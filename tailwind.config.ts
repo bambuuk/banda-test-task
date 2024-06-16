@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     colors: {
       gray: "rgba(169, 169, 169, 0.915)",
+      statusRed: "#dc2626",
     },
     screens: {
       extraSm: "320px",

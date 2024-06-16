@@ -3,20 +3,15 @@
 import { useGetAllPostsQuery } from "@/api/postsApi";
 import { Post } from "@/types/Post";
 import Link from "next/link";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
-import { toggleFavorite } from "@/store/favoriteSlice";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import useHandleToggleFavorite from "@/hooks/useHandleToggleFavorite";
 
 export const Posts = () => {
   const { data, error, isLoading } = useGetAllPostsQuery("");
   const favorites = useAppSelector((state) => state.favorites);
+  const handleToggleFavorite = useHandleToggleFavorite();
 
-  const dispatch = useAppDispatch();
-
-  const handleToggleFavorite = (postId: number) => {
-    dispatch(toggleFavorite(postId));
-  };
   return (
     <>
       {isLoading ? (
@@ -41,12 +36,12 @@ export const Posts = () => {
 
                       <button
                         onClick={() => handleToggleFavorite(post.id)}
-                        className="group p-2 transition-colors border-solid border-2 rounded-md lg:border-[#fff] lg:hover:border-[#dc2626]"
-                        style={{
-                          borderColor: favorites.includes(post.id)
-                            ? "#dc2626"
-                            : "#fff",
-                        }}
+                        className={`group p-2 transition-colors border-solid border-2 rounded-md
+                           border-[#fff] ${
+                             favorites.includes(post.id)
+                               ? "border-statusRed"
+                               : "border-[#fff]"
+                           } lg:hover:border-[#dc2626]`}
                       >
                         {favorites.includes(post.id) ? (
                           <div className="flex gap-2 sm:gap-4">
