@@ -20,7 +20,7 @@ export async function generateMetadata({
 
 export default function PostItemPage({ params }: Props) {
   return (
-    <main className="flex flex-col items-center flex-auto">
+    <main className="flex flex-col items-center flex-auto mt-[70px]">
       <div className="max-w-[1240px] m-full py-7 px-[20px] sm:px-[40px]">
         <PostItem id={params.id} />
       </div>
