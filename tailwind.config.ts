@@ -8,21 +8,20 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      'gray': 'rgba(169, 169, 169, 0.915)',
+      gray: "rgba(169, 169, 169, 0.915)",
     },
     screens: {
+      extraSm: "320px",
       sm: "576px",
       md: "768px",
-      bmd: "992px",
       lg: "1024px",
       xl: "1280px",
       "2xl": "1440px",
     },
     extend: {
       boxShadow: {
-        'sm': '0px 0px 8px rgba(255, 255, 255, 0.915)',
+        sm: "0px 0px 8px rgba(255, 255, 255, 0.915)",
       },
-
     },
   },
   plugins: [],
