@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+};
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center flex-auto">
