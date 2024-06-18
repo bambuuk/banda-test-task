@@ -41,9 +41,9 @@ export default async function PostItemPage({ params }: Props) {
             </div>
             {body ? body : "Any"}
           </div>
-        </div>
 
-        <Comments id={id} />
+          <Comments id={id} />
+        </div>
       </div>
     </main>
   );

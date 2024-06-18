@@ -5,7 +5,7 @@ export async function getAllPosts() {
     },
   });
 
-  if (!response.ok) throw new Error("Unable to fetch post");
+  if (!response.ok) throw new Error("Unable to fetch posts");
 
   return response.json();
 }
@@ -35,7 +35,7 @@ export async function getComments(id: string) {
     }
   );
 
-  if (!response.ok) throw new Error("Unable to fetch post");
+  if (!response.ok) throw new Error("Unable to fetch comments");
 
   return response.json();
 }
