@@ -34,3 +34,5 @@ export const FavoriteBtn = ({ id }: { id: number }) => {
     </button>
   );
 };
+
+export default FavoriteBtn;
